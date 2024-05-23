@@ -1,0 +1,7 @@
+{
+  "name": "jeu_de_bataille",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
