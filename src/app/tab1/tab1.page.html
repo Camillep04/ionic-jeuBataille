@@ -1,17 +1,64 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Jeu de bataille 
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-content>
+    <div class="texte-regle">
+      <h2>Règles</h2>
+      <h5>But : Avoir toutes les cartes</h5>
+      <p>Les joueurs jouent en même temps. Mélanger les cartes et placer la première carte de son paquet au centre avec le bouton "poser une carte". 
+        <br>Celui qui a la valeur la plus haute remporte le pli et ses cartes sont automatiquement misent en bas du paquet quand "poser une carte" est de nouveau cliqué. 
+        <br><br>Si les valeurs sont égales (cartes en bleu) cliquer 2 fois sur le bouton bataille pour faire une bataille. 
+        <br>A la fin de la bataille, il suffit de cliquer sur le bouton "poser une carte" pour reprendre la  partie.</p>
+    </div>
+    <div class="btn">
+      <ion-button (click)="melanger()">Mélanger</ion-button>
+      <ion-button (click)="poserCarte()">Poser une carte</ion-button>
+      <ion-button (click)="bataille()">Bataille</ion-button>
+    </div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <h2>Paquet 1</h2>
+            <div *ngFor="let item of paquet1">
+              {{ item.carte }}
+            </div>
+          </ion-col>
+          <ion-col class="gauche">
+            <h2>Joueur 1</h2>
+            <p *ngIf="carteJoueur1" 
+                 [ngClass]="{
+                   'vert-card': j1Win && !couleur, 
+                   'rouge-card': j2Win && !couleur, 
+                   'bleu-card': couleur
+                 }">
+              {{ carteJoueur1.carte }}
+            </p>
+          </ion-col>
+          <ion-col class="droite">
+            <h2>Joueur 2</h2>
+            <p *ngIf="carteJoueur2" 
+                 [ngClass]="{
+                   'vert-card': j2Win && !couleur, 
+                   'rouge-card': j1Win && !couleur, 
+                   'bleu-card': couleur
+                 }">
+              {{ carteJoueur2.carte }}
+                </p>
+          </ion-col>
+          <ion-col class="paquet-d">
+            <h2>Paquet 2</h2>
+            <div *ngFor="let item of paquet2">
+              {{ item.carte }}
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>       
+  </ion-content>  
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>

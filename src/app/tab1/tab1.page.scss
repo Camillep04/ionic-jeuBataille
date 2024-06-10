@@ -1,0 +1,56 @@
+
+ion-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  ion-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .paquet-d {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+   
+.texte-regle {
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.texte-section h3 {
+  color: #333;
+}
+
+.texte-section p {
+  color: #666;
+}
+.vert-card {
+  color: green;
+}
+
+.rouge-card {
+  color: red;
+}
+.bleu-card {
+  color: blue;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+}
+.gauche{
+  display: flex;
+  align-items: center;
+}
+.droite{
+  display: flex;
+  align-items: center;
+}
